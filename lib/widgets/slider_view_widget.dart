@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -97,8 +98,13 @@ Widget getContainer(NewsArticle news, context) {
       child: Stack(children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(16),
-          child: Image.network(
-            news.urlToImage!,
+          child: CachedNetworkImage(
+            imageUrl: news.urlToImage!,
+            placeholder: (context, url) => Container(
+                          color: Theme.of(context).colorScheme.background,
+                        ),
+            errorWidget: (context, url, error) =>
+                Image.asset("assets/Images/google_news.png"),
             width: MediaQuery.of(context).size.width,
             height: 300,
             fit: BoxFit.cover,
@@ -112,7 +118,7 @@ Widget getContainer(NewsArticle news, context) {
           child: Container(
             alignment: Alignment.center,
             height: 130,
-            padding: const EdgeInsets.only(right: 8,left: 8,bottom:0 ),
+            padding: const EdgeInsets.only(right: 8, left: 8, bottom: 0),
             width: MediaQuery.of(context).size.width,
             decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(

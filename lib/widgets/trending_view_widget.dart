@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/model/category_model.dart';
@@ -112,8 +113,10 @@ Widget getCard(context, NewsArticle article) {
           children: [
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
-                child: Image.network(
-                  article.urlToImage!,
+                child: CachedNetworkImage(
+                  imageUrl: article.urlToImage!,
+                  placeholder: (context, url) => Container(color: Theme.of(context).colorScheme.background,),
+                  errorWidget: (context, url, error) => Image.asset("assets/Images/google_news.png"),
                   width: 120,
                   height: 120,
                   fit: BoxFit.cover,
