@@ -48,7 +48,7 @@ class _WebViewScreenState extends State<WebViewScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        leading: IconButton(onPressed: () => Navigator.pop(context), icon: Icon(Icons.arrow_back_ios)) ,
+        leading: IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.arrow_back_ios)) ,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           
