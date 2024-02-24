@@ -114,6 +114,7 @@ Widget getCard(context, NewsArticle article) {
             ClipRRect(
                 borderRadius: BorderRadius.circular(12),
                 child: CachedNetworkImage(
+                  filterQuality: FilterQuality.low,
                   imageUrl: article.urlToImage!,
                   placeholder: (context, url) => Container(color: Theme.of(context).colorScheme.background,),
                   errorWidget: (context, url, error) => Image.asset("assets/Images/google_news.png"),

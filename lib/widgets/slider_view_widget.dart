@@ -99,6 +99,7 @@ Widget getContainer(NewsArticle news, context) {
         ClipRRect(
           borderRadius: BorderRadius.circular(16),
           child: CachedNetworkImage(
+            filterQuality: FilterQuality.medium,
             imageUrl: news.urlToImage!,
             placeholder: (context, url) => Container(
                           color: Theme.of(context).colorScheme.background,
