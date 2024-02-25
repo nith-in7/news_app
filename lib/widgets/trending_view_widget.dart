@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:news_app/model/category_model.dart';
 
@@ -16,6 +17,7 @@ class TrendingView extends ConsumerWidget {
       required this.type,
       required this.customScroll,
       required this.title});
+      
   final String title;
   final NewsTypes type;
   final bool customScroll;
@@ -52,6 +54,7 @@ class TrendingView extends ConsumerWidget {
       future: getArticle(ref),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+           FlutterNativeSplash.remove();
           if (snapshot.hasError) {
             return customScroll
                 ? SliverToBoxAdapter(
