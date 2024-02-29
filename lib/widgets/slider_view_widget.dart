@@ -102,8 +102,8 @@ Widget getContainer(NewsArticle news, context) {
             filterQuality: FilterQuality.medium,
             imageUrl: news.urlToImage!,
             placeholder: (context, url) => Container(
-                          color: Theme.of(context).colorScheme.background,
-                        ),
+              color: Theme.of(context).colorScheme.background,
+            ),
             errorWidget: (context, url, error) =>
                 Image.asset("assets/Images/google_news.png"),
             width: MediaQuery.of(context).size.width,
@@ -125,7 +125,10 @@ Widget getContainer(NewsArticle news, context) {
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(16),
                     bottomRight: Radius.circular(16)),
-                color: Colors.black54),
+                gradient: LinearGradient(
+                    colors: [Colors.transparent, Colors.black87],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter)),
             child: Text(
               overflow: TextOverflow.ellipsis,
               maxLines: 2,

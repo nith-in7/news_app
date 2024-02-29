@@ -20,10 +20,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'News App',
-      theme: ThemeData(
+      darkTheme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android:CupertinoPageTransitionsBuilder()
+        }),
         colorScheme: ColorScheme.fromSeed(
             seedColor: const Color.fromARGB(255, 5, 59, 71),
             brightness: Brightness.dark),
+        useMaterial3: true,
+      ),
+      theme: ThemeData(
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {
+          TargetPlatform.android:CupertinoPageTransitionsBuilder()
+        }),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 5, 59, 71),
+            brightness: Brightness.light),
         useMaterial3: true,
       ),
       home: const HomeScreen(),

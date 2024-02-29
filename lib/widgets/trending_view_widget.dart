@@ -99,17 +99,17 @@ class TrendingView extends ConsumerWidget {
 }
 
 Widget getCard(context, NewsArticle article) {
-  return InkWell(
-    borderRadius: BorderRadius.circular(16),
-    onTap: () {
+  return Card(
+    elevation: 2,
+    child: InkWell(
+      borderRadius: BorderRadius.circular(16),
+      onTap: () {
       Navigator.push(
           context,
           MaterialPageRoute(
             builder: (context) => WebViewScreen(url: article.url),
           ));
     },
-    child: Card(
-      elevation: 2,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
