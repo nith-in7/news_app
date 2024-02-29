@@ -50,6 +50,11 @@ This Flutter project utilizes the News API to provide users with the latest news
 ![Demo](https://github.com/nith-in7/news_app/assets/124262214/42762f53-0542-4493-930a-49ba490ba460)
 
 
+## Note: WebView Compatibility
+
+Please note that the WebView functionality in this project currently works only on Android. iOS support will be added in future updates.
+
+
 ## Contributing
 
 Contributions are welcome! If you have any suggestions, improvements, or feature requests, feel free to open an issue or create a pull request.
